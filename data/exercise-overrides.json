@@ -1,0 +1,147 @@
+{
+  "barbell-curl": {
+    "biceps": 10,
+    "brachialis": 8,
+    "forearms": 6,
+    "deltoids": 5,
+    "abs": 2,
+    "quads": 1
+  },
+  "dumbbell-curl": {
+    "biceps": 10,
+    "brachialis": 7,
+    "forearms": 5,
+    "deltoids": 4,
+    "abs": 2
+  },
+  "hammer-curl": {
+    "brachialis": 10,
+    "biceps": 8,
+    "forearms": 7,
+    "deltoids": 3
+  },
+  "tricep-pushdown": {
+    "triceps": 10,
+    "forearms": 4,
+    "deltoids": 3,
+    "abs": 2
+  },
+  "skull-crusher": {
+    "triceps": 10,
+    "forearms": 5,
+    "deltoids": 4,
+    "abs": 2
+  },
+  "bench-press": {
+    "pectorals": 10,
+    "deltoids": 7,
+    "triceps": 6,
+    "abs": 3,
+    "lats": 2
+  },
+  "incline-bench-press": {
+    "pectorals": 10,
+    "deltoids": 8,
+    "triceps": 5,
+    "abs": 3
+  },
+  "overhead-press": {
+    "deltoids": 10,
+    "triceps": 7,
+    "traps": 6,
+    "abs": 5,
+    "glutes": 2
+  },
+  "barbell-squat": {
+    "quads": 10,
+    "glutes": 9,
+    "hamstrings": 7,
+    "abs": 6,
+    "erector_spinae": 5,
+    "calves": 3
+  },
+  "front-squat": {
+    "quads": 10,
+    "glutes": 8,
+    "abs": 7,
+    "erector_spinae": 5,
+    "hamstrings": 5
+  },
+  "deadlift": {
+    "erector_spinae": 10,
+    "glutes": 9,
+    "hamstrings": 9,
+    "traps": 7,
+    "forearms": 6,
+    "quads": 5,
+    "abs": 4
+  },
+  "romanian-deadlift": {
+    "hamstrings": 10,
+    "glutes": 9,
+    "erector_spinae": 7,
+    "forearms": 5,
+    "abs": 4
+  },
+  "barbell-row": {
+    "lats": 10,
+    "rhomboids": 8,
+    "traps": 7,
+    "biceps": 6,
+    "erector_spinae": 5,
+    "forearms": 4
+  },
+  "pull-up": {
+    "lats": 10,
+    "biceps": 7,
+    "rhomboids": 6,
+    "forearms": 5,
+    "abs": 4
+  },
+  "chin-up": {
+    "lats": 9,
+    "biceps": 10,
+    "rhomboids": 6,
+    "forearms": 5,
+    "abs": 4
+  },
+  "lat-pulldown": {
+    "lats": 10,
+    "biceps": 6,
+    "rhomboids": 5,
+    "forearms": 4
+  },
+  "lateral-raise": {
+    "deltoids": 10,
+    "traps": 4,
+    "forearms": 3,
+    "abs": 2
+  },
+  "leg-press": {
+    "quads": 10,
+    "glutes": 8,
+    "hamstrings": 5,
+    "calves": 3
+  },
+  "leg-curl": {
+    "hamstrings": 10,
+    "glutes": 4,
+    "calves": 3
+  },
+  "calf-raise": {
+    "calves": 10,
+    "soleus": 8,
+    "hamstrings": 2
+  },
+  "plank": {
+    "abs": 10,
+    "obliques": 6,
+    "deltoids": 4,
+    "glutes": 3
+  },
+  "crunch": {
+    "abs": 10,
+    "obliques": 4,
+    "hip_flexors": 3
+  }
+}

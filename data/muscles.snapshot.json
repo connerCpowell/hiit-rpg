@@ -1,0 +1,177 @@
+[
+  {
+    "id": "chest",
+    "name": "Chest",
+    "parentRegionId": "chest",
+    "mapSlot": "chest",
+    "wgerId": null
+  },
+  {
+    "id": "back",
+    "name": "Back",
+    "parentRegionId": "back",
+    "mapSlot": "back",
+    "wgerId": null
+  },
+  {
+    "id": "shoulders",
+    "name": "Shoulders",
+    "parentRegionId": "shoulders",
+    "mapSlot": "shoulders",
+    "wgerId": null
+  },
+  {
+    "id": "arms",
+    "name": "Arms",
+    "parentRegionId": "arms",
+    "mapSlot": "arms",
+    "wgerId": null
+  },
+  {
+    "id": "core",
+    "name": "Core",
+    "parentRegionId": "core",
+    "mapSlot": "core",
+    "wgerId": null
+  },
+  {
+    "id": "legs",
+    "name": "Legs",
+    "parentRegionId": "legs",
+    "mapSlot": "legs",
+    "wgerId": null
+  },
+  {
+    "id": "biceps",
+    "name": "Biceps",
+    "parentRegionId": "arms",
+    "mapSlot": null,
+    "wgerId": 1
+  },
+  {
+    "id": "hamstrings",
+    "name": "Hamstrings",
+    "parentRegionId": "legs",
+    "mapSlot": null,
+    "wgerId": 11
+  },
+  {
+    "id": "brachialis",
+    "name": "Brachialis",
+    "parentRegionId": "arms",
+    "mapSlot": null,
+    "wgerId": 13
+  },
+  {
+    "id": "calves",
+    "name": "Calves",
+    "parentRegionId": "core",
+    "mapSlot": null,
+    "wgerId": 7
+  },
+  {
+    "id": "glutes",
+    "name": "Glutes",
+    "parentRegionId": "legs",
+    "mapSlot": null,
+    "wgerId": 8
+  },
+  {
+    "id": "lats",
+    "name": "Lats",
+    "parentRegionId": "back",
+    "mapSlot": null,
+    "wgerId": 12
+  },
+  {
+    "id": "obliques",
+    "name": "Obliques",
+    "parentRegionId": "core",
+    "mapSlot": null,
+    "wgerId": 14
+  },
+  {
+    "id": "quads",
+    "name": "Quads",
+    "parentRegionId": "legs",
+    "mapSlot": null,
+    "wgerId": 10
+  },
+  {
+    "id": "abs",
+    "name": "Abs",
+    "parentRegionId": "core",
+    "mapSlot": null,
+    "wgerId": 6
+  },
+  {
+    "id": "serratus",
+    "name": "Serratus",
+    "parentRegionId": "chest",
+    "mapSlot": null,
+    "wgerId": 3
+  },
+  {
+    "id": "soleus",
+    "name": "Soleus",
+    "parentRegionId": "legs",
+    "mapSlot": null,
+    "wgerId": 15
+  },
+  {
+    "id": "traps",
+    "name": "Traps",
+    "parentRegionId": "back",
+    "mapSlot": null,
+    "wgerId": 9
+  },
+  {
+    "id": "triceps",
+    "name": "Triceps",
+    "parentRegionId": "arms",
+    "mapSlot": null,
+    "wgerId": 5
+  },
+  {
+    "id": "forearms",
+    "name": "Forearms",
+    "parentRegionId": "arms",
+    "mapSlot": null,
+    "wgerId": null
+  },
+  {
+    "id": "deltoids",
+    "name": "Deltoids",
+    "parentRegionId": "shoulders",
+    "mapSlot": null,
+    "wgerId": null
+  },
+  {
+    "id": "pectorals",
+    "name": "Pectorals",
+    "parentRegionId": "chest",
+    "mapSlot": null,
+    "wgerId": null
+  },
+  {
+    "id": "erector_spinae",
+    "name": "Erector Spinae",
+    "parentRegionId": "back",
+    "mapSlot": null,
+    "wgerId": null
+  },
+  {
+    "id": "rhomboids",
+    "name": "Rhomboids",
+    "parentRegionId": "back",
+    "mapSlot": null,
+    "wgerId": null
+  },
+  {
+    "id": "hip_flexors",
+    "name": "Hip Flexors",
+    "parentRegionId": "legs",
+    "mapSlot": null,
+    "wgerId": null
+  }
+]
