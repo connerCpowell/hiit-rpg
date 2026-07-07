@@ -1,4 +1,5 @@
 node_modules/
+.claude
 .venv_npm/
 .expo/
 dist/
