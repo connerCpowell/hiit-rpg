@@ -31,8 +31,16 @@ export interface WorkoutSessionItemDetail extends WorkoutSessionItem {
   slug: string;
 }
 
+export interface WorkoutSessionMuscleLoad {
+  muscleId: string;
+  muscleName: string;
+  regionName: string | null;
+  load: number;
+}
+
 export interface WorkoutSessionDetail extends WorkoutSession {
   items: WorkoutSessionItemDetail[];
+  muscleLoads: WorkoutSessionMuscleLoad[];
 }
 
 export interface WorkoutSessionSubmissionItem {

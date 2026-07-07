@@ -1,4 +1,6 @@
 import { getDatabase } from './database';
+import { computeSetMuscleLoad } from './scoring';
+import type { MuscleActivation } from '../types/exercise';
 import type {
   WorkoutSession,
   WorkoutSessionDetail,
@@ -70,9 +72,24 @@ export async function getWorkoutSessionDetail(sessionId: string): Promise<Workou
     [sessionId]
   );
 
+  const muscleLoads = await db.getAllAsync<WorkoutSessionDetail['muscleLoads'][number]>(
+    `SELECT
+       wml.muscle_id AS muscleId,
+       m.name AS muscleName,
+       r.name AS regionName,
+       wml.load
+     FROM workout_session_muscle_loads wml
+     JOIN muscle_groups m ON m.id = wml.muscle_id
+     LEFT JOIN muscle_groups r ON r.id = m.parent_region_id AND r.map_slot IS NOT NULL
+     WHERE wml.session_id = ?
+     ORDER BY wml.load DESC`,
+    [sessionId]
+  );
+
   return {
     ...session,
     items,
+    muscleLoads,
   };
 }
 
@@ -85,12 +102,23 @@ function computeSessionPoints(items: WorkoutSessionSubmissionItem[]): number {
   return Math.max(points, 1);
 }
 
+async function getActivationsForExercise(exerciseId: string): Promise<MuscleActivation[]> {
+  const db = await getDatabase();
+  return db.getAllAsync<MuscleActivation>(
+    `SELECT exercise_id AS exerciseId, muscle_id AS muscleId, activation, role
+     FROM exercise_muscle_activation
+     WHERE exercise_id = ?`,
+    [exerciseId]
+  );
+}
+
 export async function createWorkoutSession(
   submission: WorkoutSessionSubmission
 ): Promise<WorkoutSession> {
   const db = await getDatabase();
   const sessionId = generateId('session');
   const points = computeSessionPoints(submission.items);
+  const muscleLoads: Record<string, number> = {};
 
   await db.execAsync('BEGIN');
   try {
@@ -107,6 +135,23 @@ export async function createWorkoutSession(
         `INSERT INTO workout_session_items (id, session_id, exercise_id, sets, reps, weight, volume, notes)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
         [itemId, sessionId, item.exerciseId, item.sets, item.reps, item.weight, volume, item.notes ?? null]
+      );
+
+      const itemLoads = computeSetMuscleLoad(
+        await getActivationsForExercise(item.exerciseId),
+        volume
+      );
+
+      for (const [muscleId, load] of Object.entries(itemLoads)) {
+        muscleLoads[muscleId] = (muscleLoads[muscleId] ?? 0) + load;
+      }
+    }
+
+    for (const [muscleId, load] of Object.entries(muscleLoads)) {
+      await db.runAsync(
+        `INSERT INTO workout_session_muscle_loads (session_id, muscle_id, load)
+         VALUES (?, ?, ?)`,
+        [sessionId, muscleId, load]
       );
     }
 

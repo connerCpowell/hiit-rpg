@@ -56,10 +56,18 @@ CREATE TABLE IF NOT EXISTS workout_session_items (
   notes TEXT
 );
 
+CREATE TABLE IF NOT EXISTS workout_session_muscle_loads (
+  session_id TEXT NOT NULL REFERENCES workout_sessions(id) ON DELETE CASCADE,
+  muscle_id TEXT NOT NULL REFERENCES muscle_groups(id),
+  load REAL NOT NULL DEFAULT 0,
+  PRIMARY KEY (session_id, muscle_id)
+);
+
 CREATE INDEX IF NOT EXISTS idx_exercises_slug ON exercises(slug);
 CREATE INDEX IF NOT EXISTS idx_exercises_name ON exercises(name);
 CREATE INDEX IF NOT EXISTS idx_activation_muscle ON exercise_muscle_activation(muscle_id);
 CREATE INDEX IF NOT EXISTS idx_aliases_exercise ON exercise_aliases(exercise_id);
 CREATE INDEX IF NOT EXISTS idx_workout_sessions_user ON workout_sessions(user_id);
 CREATE INDEX IF NOT EXISTS idx_workout_session_items_session ON workout_session_items(session_id);
+CREATE INDEX IF NOT EXISTS idx_workout_muscle_loads_muscle ON workout_session_muscle_loads(muscle_id);
 `;

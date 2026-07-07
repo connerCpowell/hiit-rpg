@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import {
   ActivityIndicator,
-  FlatList,
   Pressable,
   SafeAreaView,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -26,6 +26,20 @@ import type { RootStackParamList } from '../types/navigation';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
+interface PendingWorkoutItem {
+  localId: string;
+  exerciseId: string;
+  exerciseName: string;
+  sets: number;
+  reps: number;
+  weight: number;
+}
+
+function parseWorkoutNumber(value: string): number {
+  const parsed = Number(value.replace(',', '.'));
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
 export default function HomeScreen({ navigation }: Props) {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<ExerciseSearchResult[]>([]);
@@ -38,6 +52,10 @@ export default function HomeScreen({ navigation }: Props) {
   const [addingToLog, setAddingToLog] = useState(false);
   const [sessionTitle, setSessionTitle] = useState('My workout');
   const [sessionNote, setSessionNote] = useState('');
+  const [setsInput, setSetsInput] = useState('3');
+  const [repsInput, setRepsInput] = useState('10');
+  const [weightInput, setWeightInput] = useState('0');
+  const [workoutItems, setWorkoutItems] = useState<PendingWorkoutItem[]>([]);
 
   const loadResults = useCallback(async (searchQuery: string) => {
     try {
@@ -88,9 +106,47 @@ export default function HomeScreen({ navigation }: Props) {
     }
   };
 
+  const handleAddExerciseToWorkout = () => {
+    if (!selected) {
+      setError('Select an exercise before adding it to the workout.');
+      return;
+    }
+
+    const sets = Math.round(parseWorkoutNumber(setsInput));
+    const reps = Math.round(parseWorkoutNumber(repsInput));
+    const weight = parseWorkoutNumber(weightInput);
+
+    if (sets <= 0 || reps <= 0 || weight < 0) {
+      setError('Use positive sets/reps and a weight of 0 or more.');
+      return;
+    }
+
+    setWorkoutItems((current) => [
+      ...current,
+      {
+        localId: `${selected.id}-${Date.now()}-${current.length}`,
+        exerciseId: selected.id,
+        exerciseName: selected.name,
+        sets,
+        reps,
+        weight,
+      },
+    ]);
+    setError(null);
+  };
+
+  const handleRemoveWorkoutItem = (localId: string) => {
+    setWorkoutItems((current) => current.filter((item) => item.localId !== localId));
+  };
+
   const handleCreateWorkout = async () => {
-    if (!userId || !selected) {
-      setError('Select an exercise before logging a workout.');
+    if (!userId) {
+      setError('User is still loading. Try again in a moment.');
+      return;
+    }
+
+    if (workoutItems.length === 0) {
+      setError('Add at least one exercise before saving the workout.');
       return;
     }
 
@@ -102,19 +158,18 @@ export default function HomeScreen({ navigation }: Props) {
         performedAt: new Date().toISOString(),
         title: sessionTitle,
         notes: sessionNote,
-        items: [
-          {
-            exerciseId: selected.id,
-            sets: 3,
-            reps: 10,
-            weight: 0,
-          },
-        ],
+        items: workoutItems.map((item) => ({
+          exerciseId: item.exerciseId,
+          sets: item.sets,
+          reps: item.reps,
+          weight: item.weight,
+        })),
       });
       const updatedWorkouts = await getWorkoutSessions(userId);
       setWorkouts(updatedWorkouts);
       setSessionTitle('My workout');
       setSessionNote('');
+      setWorkoutItems([]);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to save workout.');
     } finally {
@@ -124,6 +179,7 @@ export default function HomeScreen({ navigation }: Props) {
 
   return (
     <SafeAreaView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled">
       <Text style={styles.title}>Workout RPG</Text>
       <Text style={styles.subtitle}>Search and log workouts</Text>
 
@@ -145,23 +201,21 @@ export default function HomeScreen({ navigation }: Props) {
 
       {loading ? (
         <ActivityIndicator color="#58a6ff" style={styles.loader} />
+      ) : results.length === 0 ? (
+        <Text style={styles.empty}>No exercises found.</Text>
       ) : (
-        <FlatList
-          data={results}
-          keyExtractor={(item) => item.id}
-          style={styles.resultsList}
-          keyboardShouldPersistTaps="handled"
-          ListEmptyComponent={<Text style={styles.empty}>No exercises found.</Text>}
-          renderItem={({ item }) => (
+        <View style={styles.resultsList}>
+          {results.map((item) => (
             <Pressable
+              key={item.id}
               style={[styles.resultItem, selected?.id === item.id && styles.resultItemActive]}
               onPress={() => void handleSelect(item)}
             >
               <Text style={styles.resultName}>{item.name}</Text>
               <Text style={styles.resultMeta}>{item.slug}</Text>
             </Pressable>
-          )}
-        />
+          ))}
+        </View>
       )}
 
       {detailLoading ? <ActivityIndicator color="#58a6ff" style={styles.loader} /> : null}
@@ -187,7 +241,69 @@ export default function HomeScreen({ navigation }: Props) {
           )}
 
           <View style={styles.logForm}>
-            <Text style={styles.sectionTitle}>Log this exercise</Text>
+            <Text style={styles.sectionTitle}>Add to workout</Text>
+            <View style={styles.inputRow}>
+              <View style={styles.inputGroup}>
+                <Text style={styles.inputLabel}>Sets</Text>
+                <TextInput
+                  style={styles.smallInput}
+                  value={setsInput}
+                  onChangeText={setSetsInput}
+                  keyboardType="numeric"
+                  placeholderTextColor="#8b949e"
+                />
+              </View>
+              <View style={styles.inputGroup}>
+                <Text style={styles.inputLabel}>Reps</Text>
+                <TextInput
+                  style={styles.smallInput}
+                  value={repsInput}
+                  onChangeText={setRepsInput}
+                  keyboardType="numeric"
+                  placeholderTextColor="#8b949e"
+                />
+              </View>
+              <View style={styles.inputGroup}>
+                <Text style={styles.inputLabel}>Weight</Text>
+                <TextInput
+                  style={styles.smallInput}
+                  value={weightInput}
+                  onChangeText={setWeightInput}
+                  keyboardType="decimal-pad"
+                  placeholder="0"
+                  placeholderTextColor="#8b949e"
+                />
+              </View>
+            </View>
+            <Pressable style={styles.secondaryButton} onPress={handleAddExerciseToWorkout}>
+              <Text style={styles.secondaryButtonText}>Add exercise</Text>
+            </Pressable>
+          </View>
+        </View>
+      ) : null}
+
+      <View style={styles.historyCard}>
+        <Text style={styles.sectionTitle}>Current workout</Text>
+        {workoutItems.length === 0 ? (
+          <Text style={styles.empty}>Add exercises above to build a workout.</Text>
+        ) : (
+          workoutItems.map((item) => (
+            <View key={item.localId} style={styles.pendingItem}>
+              <View>
+                <Text style={styles.resultName}>{item.exerciseName}</Text>
+                <Text style={styles.muscleMeta}>
+                  {item.sets}x{item.reps} · {item.weight === 0 ? 'bodyweight' : `${item.weight} kg`}
+                </Text>
+              </View>
+              <Pressable onPress={() => handleRemoveWorkoutItem(item.localId)}>
+                <Text style={styles.removeText}>Remove</Text>
+              </Pressable>
+            </View>
+          ))
+        )}
+
+        <View style={styles.logForm}>
+          <Text style={styles.sectionTitle}>Save workout</Text>
             <TextInput
               style={styles.textArea}
               placeholder="Workout title"
@@ -208,9 +324,8 @@ export default function HomeScreen({ navigation }: Props) {
             <Pressable style={styles.actionButton} onPress={handleCreateWorkout} disabled={addingToLog}>
               <Text style={styles.actionButtonText}>{addingToLog ? 'Saving…' : 'Save workout'}</Text>
             </Pressable>
-          </View>
         </View>
-      ) : null}
+      </View>
 
       <View style={styles.historyCard}>
         <Text style={styles.sectionTitle}>Recent workouts</Text>
@@ -218,15 +333,20 @@ export default function HomeScreen({ navigation }: Props) {
           <Text style={styles.empty}>No workouts logged yet.</Text>
         ) : (
           workouts.map((workout) => (
-            <View key={workout.id} style={styles.workoutRow}>
+            <Pressable
+              key={workout.id}
+              style={styles.workoutRow}
+              onPress={() => navigation.navigate('WorkoutDetail', { sessionId: workout.id })}
+            >
               <Text style={styles.resultName}>{workout.title}</Text>
               <Text style={styles.muscleMeta}>
                 {new Date(workout.performedAt).toLocaleDateString()} · {workout.points} pts
               </Text>
-            </View>
+            </Pressable>
           ))
         )}
       </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -237,6 +357,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#0d1117',
     paddingHorizontal: 16,
     paddingTop: 8,
+  },
+  scrollContent: {
+    paddingBottom: 24,
   },
   title: {
     color: '#f0f6fc',
@@ -284,7 +407,6 @@ const styles = StyleSheet.create({
   detailCard: {
     backgroundColor: '#161b22',
     borderRadius: 12,
-    flex: 1,
     marginTop: 12,
     padding: 16,
   },
@@ -345,6 +467,28 @@ const styles = StyleSheet.create({
   logForm: {
     marginTop: 20,
   },
+  inputRow: {
+    flexDirection: 'row',
+    gap: 10,
+    marginBottom: 12,
+  },
+  inputGroup: {
+    flex: 1,
+  },
+  inputLabel: {
+    color: '#8b949e',
+    fontSize: 12,
+    marginBottom: 6,
+  },
+  smallInput: {
+    backgroundColor: '#0d1117',
+    borderColor: '#30363d',
+    borderRadius: 10,
+    borderWidth: 1,
+    color: '#f0f6fc',
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+  },
   sectionTitle: {
     color: '#c9d1d9',
     fontSize: 14,
@@ -368,7 +512,17 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     alignItems: 'center',
   },
+  secondaryButton: {
+    alignItems: 'center',
+    backgroundColor: '#1f6feb',
+    borderRadius: 10,
+    paddingVertical: 12,
+  },
   actionButtonText: {
+    color: '#f0f6fc',
+    fontWeight: '700',
+  },
+  secondaryButtonText: {
     color: '#f0f6fc',
     fontWeight: '700',
   },
@@ -377,6 +531,19 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginTop: 18,
     padding: 16,
+  },
+  pendingItem: {
+    alignItems: 'center',
+    borderBottomColor: '#30363d',
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 12,
+    paddingBottom: 12,
+  },
+  removeText: {
+    color: '#ff7b72',
+    fontWeight: '700',
   },
   workoutRow: {
     marginBottom: 12,

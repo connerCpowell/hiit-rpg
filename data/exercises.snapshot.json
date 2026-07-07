@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-06T15:04:23.556Z",
+  "generatedAt": "2026-07-06T19:28:44.146Z",
   "exercises": [
     {
       "id": "wger-1962",
@@ -9434,6 +9434,236 @@
       "isCompound": true,
       "source": "manual",
       "wgerId": -1
+    },
+    {
+      "id": "manual-dip",
+      "name": "Dip",
+      "slug": "dip",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
+    },
+    {
+      "id": "manual-chest-fly",
+      "name": "Chest Fly",
+      "slug": "chest-fly",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
+    },
+    {
+      "id": "manual-cable-crossover",
+      "name": "Cable Crossover",
+      "slug": "cable-crossover",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
+    },
+    {
+      "id": "manual-seated-row",
+      "name": "Seated Row",
+      "slug": "seated-row",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
+    },
+    {
+      "id": "manual-single-arm-dumbbell-row",
+      "name": "Single Arm Dumbbell Row",
+      "slug": "single-arm-dumbbell-row",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
+    },
+    {
+      "id": "manual-face-pull",
+      "name": "Face Pull",
+      "slug": "face-pull",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
+    },
+    {
+      "id": "manual-rear-delt-fly",
+      "name": "Rear Delt Fly",
+      "slug": "rear-delt-fly",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
+    },
+    {
+      "id": "manual-shrug",
+      "name": "Shrug",
+      "slug": "shrug",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
+    },
+    {
+      "id": "manual-upright-row",
+      "name": "Upright Row",
+      "slug": "upright-row",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
+    },
+    {
+      "id": "manual-dumbbell-shoulder-press",
+      "name": "Dumbbell Shoulder Press",
+      "slug": "dumbbell-shoulder-press",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
+    },
+    {
+      "id": "manual-arnold-press",
+      "name": "Arnold Press",
+      "slug": "arnold-press",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
+    },
+    {
+      "id": "manual-front-raise",
+      "name": "Front Raise",
+      "slug": "front-raise",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
+    },
+    {
+      "id": "manual-preacher-curl",
+      "name": "Preacher Curl",
+      "slug": "preacher-curl",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
+    },
+    {
+      "id": "manual-concentration-curl",
+      "name": "Concentration Curl",
+      "slug": "concentration-curl",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
+    },
+    {
+      "id": "manual-cable-curl",
+      "name": "Cable Curl",
+      "slug": "cable-curl",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
+    },
+    {
+      "id": "manual-close-grip-bench-press",
+      "name": "Close Grip Bench Press",
+      "slug": "close-grip-bench-press",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
+    },
+    {
+      "id": "manual-walking-lunge",
+      "name": "Walking Lunge",
+      "slug": "walking-lunge",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
+    },
+    {
+      "id": "manual-bulgarian-split-squat",
+      "name": "Bulgarian Split Squat",
+      "slug": "bulgarian-split-squat",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
+    },
+    {
+      "id": "manual-goblet-squat",
+      "name": "Goblet Squat",
+      "slug": "goblet-squat",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
+    },
+    {
+      "id": "manual-hanging-leg-raise",
+      "name": "Hanging Leg Raise",
+      "slug": "hanging-leg-raise",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
+    },
+    {
+      "id": "manual-mountain-climber",
+      "name": "Mountain Climber",
+      "slug": "mountain-climber",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
+    },
+    {
+      "id": "manual-burpee",
+      "name": "Burpee",
+      "slug": "burpee",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
+    },
+    {
+      "id": "manual-jump-rope",
+      "name": "Jump Rope",
+      "slug": "jump-rope",
+      "category": "strength",
+      "equipment": [],
+      "isCompound": true,
+      "source": "manual",
+      "wgerId": -1
     }
   ],
   "activations": [
@@ -11426,8 +11656,8 @@
     {
       "exerciseId": "wger-1193",
       "muscleId": "abs",
-      "activation": 10,
-      "role": "primary"
+      "activation": 7,
+      "role": "secondary"
     },
     {
       "exerciseId": "wger-1194",
@@ -16832,7 +17062,7 @@
     {
       "exerciseId": "wger-265",
       "muscleId": "hamstrings",
-      "activation": 6,
+      "activation": 5,
       "role": "secondary"
     },
     {
@@ -17990,8 +18220,8 @@
     {
       "exerciseId": "wger-630",
       "muscleId": "quads",
-      "activation": 10,
-      "role": "primary"
+      "activation": 7,
+      "role": "secondary"
     },
     {
       "exerciseId": "wger-616",
@@ -18416,13 +18646,13 @@
     {
       "exerciseId": "wger-1551",
       "muscleId": "abs",
-      "activation": 6,
+      "activation": 4,
       "role": "secondary"
     },
     {
       "exerciseId": "wger-1551",
       "muscleId": "triceps",
-      "activation": 6,
+      "activation": 7,
       "role": "secondary"
     },
     {
@@ -18970,6 +19200,858 @@
       "muscleId": "hip_flexors",
       "activation": 3,
       "role": "stabilizer"
+    },
+    {
+      "exerciseId": "wger-1551",
+      "muscleId": "pectorals",
+      "activation": 10,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "wger-1551",
+      "muscleId": "deltoids",
+      "activation": 6,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "wger-1551",
+      "muscleId": "serratus",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "wger-1551",
+      "muscleId": "glutes",
+      "activation": 2,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-dip",
+      "muscleId": "triceps",
+      "activation": 10,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-dip",
+      "muscleId": "pectorals",
+      "activation": 8,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-dip",
+      "muscleId": "deltoids",
+      "activation": 6,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-dip",
+      "muscleId": "abs",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-dip",
+      "muscleId": "lats",
+      "activation": 2,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-chest-fly",
+      "muscleId": "pectorals",
+      "activation": 10,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-chest-fly",
+      "muscleId": "deltoids",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-chest-fly",
+      "muscleId": "biceps",
+      "activation": 2,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-chest-fly",
+      "muscleId": "abs",
+      "activation": 2,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-cable-crossover",
+      "muscleId": "pectorals",
+      "activation": 10,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-cable-crossover",
+      "muscleId": "deltoids",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-cable-crossover",
+      "muscleId": "serratus",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-cable-crossover",
+      "muscleId": "abs",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-seated-row",
+      "muscleId": "lats",
+      "activation": 9,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-seated-row",
+      "muscleId": "rhomboids",
+      "activation": 8,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-seated-row",
+      "muscleId": "traps",
+      "activation": 6,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-seated-row",
+      "muscleId": "biceps",
+      "activation": 6,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-seated-row",
+      "muscleId": "forearms",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-seated-row",
+      "muscleId": "erector_spinae",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-single-arm-dumbbell-row",
+      "muscleId": "lats",
+      "activation": 10,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-single-arm-dumbbell-row",
+      "muscleId": "rhomboids",
+      "activation": 7,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-single-arm-dumbbell-row",
+      "muscleId": "traps",
+      "activation": 6,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-single-arm-dumbbell-row",
+      "muscleId": "biceps",
+      "activation": 6,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-single-arm-dumbbell-row",
+      "muscleId": "forearms",
+      "activation": 5,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-single-arm-dumbbell-row",
+      "muscleId": "abs",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-single-arm-dumbbell-row",
+      "muscleId": "erector_spinae",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-face-pull",
+      "muscleId": "deltoids",
+      "activation": 8,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-face-pull",
+      "muscleId": "traps",
+      "activation": 7,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-face-pull",
+      "muscleId": "rhomboids",
+      "activation": 7,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-face-pull",
+      "muscleId": "forearms",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-face-pull",
+      "muscleId": "abs",
+      "activation": 2,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-rear-delt-fly",
+      "muscleId": "deltoids",
+      "activation": 10,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-rear-delt-fly",
+      "muscleId": "rhomboids",
+      "activation": 6,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-rear-delt-fly",
+      "muscleId": "traps",
+      "activation": 5,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-rear-delt-fly",
+      "muscleId": "forearms",
+      "activation": 2,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-shrug",
+      "muscleId": "traps",
+      "activation": 10,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-shrug",
+      "muscleId": "forearms",
+      "activation": 5,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-shrug",
+      "muscleId": "deltoids",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-shrug",
+      "muscleId": "erector_spinae",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-upright-row",
+      "muscleId": "deltoids",
+      "activation": 9,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-upright-row",
+      "muscleId": "traps",
+      "activation": 8,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-upright-row",
+      "muscleId": "biceps",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-upright-row",
+      "muscleId": "forearms",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-upright-row",
+      "muscleId": "abs",
+      "activation": 2,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-dumbbell-shoulder-press",
+      "muscleId": "deltoids",
+      "activation": 10,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-dumbbell-shoulder-press",
+      "muscleId": "triceps",
+      "activation": 7,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-dumbbell-shoulder-press",
+      "muscleId": "traps",
+      "activation": 5,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-dumbbell-shoulder-press",
+      "muscleId": "abs",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-dumbbell-shoulder-press",
+      "muscleId": "glutes",
+      "activation": 2,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-arnold-press",
+      "muscleId": "deltoids",
+      "activation": 10,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-arnold-press",
+      "muscleId": "triceps",
+      "activation": 6,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-arnold-press",
+      "muscleId": "traps",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-arnold-press",
+      "muscleId": "abs",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-arnold-press",
+      "muscleId": "biceps",
+      "activation": 2,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-front-raise",
+      "muscleId": "deltoids",
+      "activation": 10,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-front-raise",
+      "muscleId": "pectorals",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-front-raise",
+      "muscleId": "traps",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-front-raise",
+      "muscleId": "abs",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-front-raise",
+      "muscleId": "forearms",
+      "activation": 2,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-preacher-curl",
+      "muscleId": "biceps",
+      "activation": 10,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-preacher-curl",
+      "muscleId": "brachialis",
+      "activation": 7,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-preacher-curl",
+      "muscleId": "forearms",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-preacher-curl",
+      "muscleId": "deltoids",
+      "activation": 2,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-concentration-curl",
+      "muscleId": "biceps",
+      "activation": 10,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-concentration-curl",
+      "muscleId": "brachialis",
+      "activation": 6,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-concentration-curl",
+      "muscleId": "forearms",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-cable-curl",
+      "muscleId": "biceps",
+      "activation": 10,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-cable-curl",
+      "muscleId": "brachialis",
+      "activation": 7,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-cable-curl",
+      "muscleId": "forearms",
+      "activation": 5,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-cable-curl",
+      "muscleId": "deltoids",
+      "activation": 2,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "wger-1519",
+      "muscleId": "triceps",
+      "activation": 10,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "wger-1519",
+      "muscleId": "deltoids",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "wger-1519",
+      "muscleId": "forearms",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "wger-1519",
+      "muscleId": "abs",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-close-grip-bench-press",
+      "muscleId": "triceps",
+      "activation": 10,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-close-grip-bench-press",
+      "muscleId": "pectorals",
+      "activation": 7,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-close-grip-bench-press",
+      "muscleId": "deltoids",
+      "activation": 6,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-close-grip-bench-press",
+      "muscleId": "abs",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-close-grip-bench-press",
+      "muscleId": "lats",
+      "activation": 2,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "wger-369",
+      "muscleId": "hip_flexors",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-walking-lunge",
+      "muscleId": "quads",
+      "activation": 9,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-walking-lunge",
+      "muscleId": "glutes",
+      "activation": 8,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-walking-lunge",
+      "muscleId": "hamstrings",
+      "activation": 6,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-walking-lunge",
+      "muscleId": "calves",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-walking-lunge",
+      "muscleId": "abs",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-walking-lunge",
+      "muscleId": "adductors",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-bulgarian-split-squat",
+      "muscleId": "quads",
+      "activation": 10,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-bulgarian-split-squat",
+      "muscleId": "glutes",
+      "activation": 9,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-bulgarian-split-squat",
+      "muscleId": "hamstrings",
+      "activation": 5,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-bulgarian-split-squat",
+      "muscleId": "adductors",
+      "activation": 5,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-bulgarian-split-squat",
+      "muscleId": "calves",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-bulgarian-split-squat",
+      "muscleId": "abs",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "wger-294",
+      "muscleId": "hamstrings",
+      "activation": 6,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "wger-294",
+      "muscleId": "quads",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "wger-294",
+      "muscleId": "abs",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "wger-294",
+      "muscleId": "erector_spinae",
+      "activation": 2,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "wger-265",
+      "muscleId": "abs",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "wger-265",
+      "muscleId": "erector_spinae",
+      "activation": 2,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "wger-630",
+      "muscleId": "glutes",
+      "activation": 10,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "wger-630",
+      "muscleId": "hamstrings",
+      "activation": 8,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "wger-630",
+      "muscleId": "adductors",
+      "activation": 7,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "wger-630",
+      "muscleId": "erector_spinae",
+      "activation": 7,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "wger-630",
+      "muscleId": "traps",
+      "activation": 5,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "wger-630",
+      "muscleId": "forearms",
+      "activation": 5,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "wger-630",
+      "muscleId": "abs",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-goblet-squat",
+      "muscleId": "quads",
+      "activation": 10,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-goblet-squat",
+      "muscleId": "glutes",
+      "activation": 8,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-goblet-squat",
+      "muscleId": "hamstrings",
+      "activation": 5,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-goblet-squat",
+      "muscleId": "abs",
+      "activation": 6,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-goblet-squat",
+      "muscleId": "forearms",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-goblet-squat",
+      "muscleId": "deltoids",
+      "activation": 2,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-hanging-leg-raise",
+      "muscleId": "abs",
+      "activation": 10,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-hanging-leg-raise",
+      "muscleId": "hip_flexors",
+      "activation": 8,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-hanging-leg-raise",
+      "muscleId": "obliques",
+      "activation": 5,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-hanging-leg-raise",
+      "muscleId": "forearms",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-hanging-leg-raise",
+      "muscleId": "lats",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "wger-1193",
+      "muscleId": "hip_flexors",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "wger-1193",
+      "muscleId": "deltoids",
+      "activation": 2,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-mountain-climber",
+      "muscleId": "abs",
+      "activation": 8,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-mountain-climber",
+      "muscleId": "hip_flexors",
+      "activation": 7,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-mountain-climber",
+      "muscleId": "deltoids",
+      "activation": 5,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-mountain-climber",
+      "muscleId": "quads",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-mountain-climber",
+      "muscleId": "pectorals",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-mountain-climber",
+      "muscleId": "triceps",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-burpee",
+      "muscleId": "quads",
+      "activation": 8,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-burpee",
+      "muscleId": "glutes",
+      "activation": 7,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-burpee",
+      "muscleId": "pectorals",
+      "activation": 6,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-burpee",
+      "muscleId": "triceps",
+      "activation": 5,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-burpee",
+      "muscleId": "deltoids",
+      "activation": 5,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-burpee",
+      "muscleId": "abs",
+      "activation": 5,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-burpee",
+      "muscleId": "calves",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-burpee",
+      "muscleId": "hamstrings",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-jump-rope",
+      "muscleId": "calves",
+      "activation": 10,
+      "role": "primary"
+    },
+    {
+      "exerciseId": "manual-jump-rope",
+      "muscleId": "quads",
+      "activation": 4,
+      "role": "secondary"
+    },
+    {
+      "exerciseId": "manual-jump-rope",
+      "muscleId": "hamstrings",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-jump-rope",
+      "muscleId": "deltoids",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-jump-rope",
+      "muscleId": "forearms",
+      "activation": 3,
+      "role": "stabilizer"
+    },
+    {
+      "exerciseId": "manual-jump-rope",
+      "muscleId": "abs",
+      "activation": 3,
+      "role": "stabilizer"
     }
   ],
   "aliases": [
@@ -19183,7 +20265,7 @@
     },
     {
       "alias": "walking lunges",
-      "exerciseId": "wger-206"
+      "exerciseId": "manual-walking-lunge"
     },
     {
       "alias": "weighted dips",
@@ -19524,13 +20606,433 @@
     {
       "alias": "crunch",
       "exerciseId": "manual-crunch"
+    },
+    {
+      "alias": "pushup",
+      "exerciseId": "wger-1551"
+    },
+    {
+      "alias": "pushups",
+      "exerciseId": "wger-1551"
+    },
+    {
+      "alias": "push ups",
+      "exerciseId": "wger-1551"
+    },
+    {
+      "alias": "press up",
+      "exerciseId": "wger-1551"
+    },
+    {
+      "alias": "push-up",
+      "exerciseId": "wger-1551"
+    },
+    {
+      "alias": "dips",
+      "exerciseId": "manual-dip"
+    },
+    {
+      "alias": "parallel bar dip",
+      "exerciseId": "manual-dip"
+    },
+    {
+      "alias": "chest dip",
+      "exerciseId": "manual-dip"
+    },
+    {
+      "alias": "triceps dip",
+      "exerciseId": "manual-dip"
+    },
+    {
+      "alias": "dip",
+      "exerciseId": "manual-dip"
+    },
+    {
+      "alias": "pec fly",
+      "exerciseId": "manual-chest-fly"
+    },
+    {
+      "alias": "dumbbell fly",
+      "exerciseId": "manual-chest-fly"
+    },
+    {
+      "alias": "db fly",
+      "exerciseId": "manual-chest-fly"
+    },
+    {
+      "alias": "machine fly",
+      "exerciseId": "manual-chest-fly"
+    },
+    {
+      "alias": "chest-fly",
+      "exerciseId": "manual-chest-fly"
+    },
+    {
+      "alias": "cable fly",
+      "exerciseId": "manual-cable-crossover"
+    },
+    {
+      "alias": "cable chest fly",
+      "exerciseId": "manual-cable-crossover"
+    },
+    {
+      "alias": "crossover",
+      "exerciseId": "manual-cable-crossover"
+    },
+    {
+      "alias": "cable-crossover",
+      "exerciseId": "manual-cable-crossover"
+    },
+    {
+      "alias": "cable row",
+      "exerciseId": "manual-seated-row"
+    },
+    {
+      "alias": "seated cable row",
+      "exerciseId": "manual-seated-row"
+    },
+    {
+      "alias": "machine row",
+      "exerciseId": "manual-seated-row"
+    },
+    {
+      "alias": "seated-row",
+      "exerciseId": "manual-seated-row"
+    },
+    {
+      "alias": "db row",
+      "exerciseId": "manual-single-arm-dumbbell-row"
+    },
+    {
+      "alias": "one arm row",
+      "exerciseId": "manual-single-arm-dumbbell-row"
+    },
+    {
+      "alias": "single arm row",
+      "exerciseId": "manual-single-arm-dumbbell-row"
+    },
+    {
+      "alias": "dumbbell row",
+      "exerciseId": "manual-single-arm-dumbbell-row"
+    },
+    {
+      "alias": "single-arm-dumbbell-row",
+      "exerciseId": "manual-single-arm-dumbbell-row"
+    },
+    {
+      "alias": "face pulls",
+      "exerciseId": "manual-face-pull"
+    },
+    {
+      "alias": "rope face pull",
+      "exerciseId": "manual-face-pull"
+    },
+    {
+      "alias": "face-pull",
+      "exerciseId": "manual-face-pull"
+    },
+    {
+      "alias": "reverse fly",
+      "exerciseId": "manual-rear-delt-fly"
+    },
+    {
+      "alias": "rear delt raise",
+      "exerciseId": "manual-rear-delt-fly"
+    },
+    {
+      "alias": "rear delt flies",
+      "exerciseId": "manual-rear-delt-fly"
+    },
+    {
+      "alias": "rear-delt-fly",
+      "exerciseId": "manual-rear-delt-fly"
+    },
+    {
+      "alias": "shrugs",
+      "exerciseId": "manual-shrug"
+    },
+    {
+      "alias": "barbell shrug",
+      "exerciseId": "manual-shrug"
+    },
+    {
+      "alias": "dumbbell shrug",
+      "exerciseId": "manual-shrug"
+    },
+    {
+      "alias": "shrug",
+      "exerciseId": "manual-shrug"
+    },
+    {
+      "alias": "upright rows",
+      "exerciseId": "manual-upright-row"
+    },
+    {
+      "alias": "barbell upright row",
+      "exerciseId": "manual-upright-row"
+    },
+    {
+      "alias": "upright-row",
+      "exerciseId": "manual-upright-row"
+    },
+    {
+      "alias": "db shoulder press",
+      "exerciseId": "manual-dumbbell-shoulder-press"
+    },
+    {
+      "alias": "seated dumbbell press",
+      "exerciseId": "manual-dumbbell-shoulder-press"
+    },
+    {
+      "alias": "dumbbell press",
+      "exerciseId": "manual-dumbbell-shoulder-press"
+    },
+    {
+      "alias": "dumbbell-shoulder-press",
+      "exerciseId": "manual-dumbbell-shoulder-press"
+    },
+    {
+      "alias": "arnold press",
+      "exerciseId": "manual-arnold-press"
+    },
+    {
+      "alias": "arnold-press",
+      "exerciseId": "manual-arnold-press"
+    },
+    {
+      "alias": "front raises",
+      "exerciseId": "manual-front-raise"
+    },
+    {
+      "alias": "dumbbell front raise",
+      "exerciseId": "manual-front-raise"
+    },
+    {
+      "alias": "front-raise",
+      "exerciseId": "manual-front-raise"
+    },
+    {
+      "alias": "preacher curls",
+      "exerciseId": "manual-preacher-curl"
+    },
+    {
+      "alias": "ez bar preacher curl",
+      "exerciseId": "manual-preacher-curl"
+    },
+    {
+      "alias": "preacher-curl",
+      "exerciseId": "manual-preacher-curl"
+    },
+    {
+      "alias": "concentration curls",
+      "exerciseId": "manual-concentration-curl"
+    },
+    {
+      "alias": "concentration-curl",
+      "exerciseId": "manual-concentration-curl"
+    },
+    {
+      "alias": "cable curls",
+      "exerciseId": "manual-cable-curl"
+    },
+    {
+      "alias": "low cable curl",
+      "exerciseId": "manual-cable-curl"
+    },
+    {
+      "alias": "cable-curl",
+      "exerciseId": "manual-cable-curl"
+    },
+    {
+      "alias": "overhead tricep extension",
+      "exerciseId": "wger-1519"
+    },
+    {
+      "alias": "overhead triceps extensions",
+      "exerciseId": "wger-1519"
+    },
+    {
+      "alias": "triceps extension",
+      "exerciseId": "wger-1519"
+    },
+    {
+      "alias": "overhead-triceps-extension",
+      "exerciseId": "wger-1519"
+    },
+    {
+      "alias": "close grip bench",
+      "exerciseId": "manual-close-grip-bench-press"
+    },
+    {
+      "alias": "cgbp",
+      "exerciseId": "manual-close-grip-bench-press"
+    },
+    {
+      "alias": "close grip press",
+      "exerciseId": "manual-close-grip-bench-press"
+    },
+    {
+      "alias": "close-grip-bench-press",
+      "exerciseId": "manual-close-grip-bench-press"
+    },
+    {
+      "alias": "leg extensions",
+      "exerciseId": "wger-369"
+    },
+    {
+      "alias": "quad extension",
+      "exerciseId": "wger-369"
+    },
+    {
+      "alias": "leg-extension",
+      "exerciseId": "wger-369"
+    },
+    {
+      "alias": "lunges",
+      "exerciseId": "manual-walking-lunge"
+    },
+    {
+      "alias": "lunge",
+      "exerciseId": "manual-walking-lunge"
+    },
+    {
+      "alias": "walking-lunge",
+      "exerciseId": "manual-walking-lunge"
+    },
+    {
+      "alias": "bulgarian split squat",
+      "exerciseId": "manual-bulgarian-split-squat"
+    },
+    {
+      "alias": "split squat",
+      "exerciseId": "manual-bulgarian-split-squat"
+    },
+    {
+      "alias": "rear foot elevated split squat",
+      "exerciseId": "manual-bulgarian-split-squat"
+    },
+    {
+      "alias": "bulgarian-split-squat",
+      "exerciseId": "manual-bulgarian-split-squat"
+    },
+    {
+      "alias": "hip thrusts",
+      "exerciseId": "wger-294"
+    },
+    {
+      "alias": "barbell hip thrust",
+      "exerciseId": "wger-294"
+    },
+    {
+      "alias": "hip-thrust",
+      "exerciseId": "wger-294"
+    },
+    {
+      "alias": "glute bridge",
+      "exerciseId": "wger-265"
+    },
+    {
+      "alias": "glute bridges",
+      "exerciseId": "wger-265"
+    },
+    {
+      "alias": "glute-bridge",
+      "exerciseId": "wger-265"
+    },
+    {
+      "alias": "sumo deadlift",
+      "exerciseId": "wger-630"
+    },
+    {
+      "alias": "sumo deadlifts",
+      "exerciseId": "wger-630"
+    },
+    {
+      "alias": "sumo-deadlift",
+      "exerciseId": "wger-630"
+    },
+    {
+      "alias": "goblet squat",
+      "exerciseId": "manual-goblet-squat"
+    },
+    {
+      "alias": "goblet squats",
+      "exerciseId": "manual-goblet-squat"
+    },
+    {
+      "alias": "goblet-squat",
+      "exerciseId": "manual-goblet-squat"
+    },
+    {
+      "alias": "hanging leg raise",
+      "exerciseId": "manual-hanging-leg-raise"
+    },
+    {
+      "alias": "hanging leg raises",
+      "exerciseId": "manual-hanging-leg-raise"
+    },
+    {
+      "alias": "leg raise",
+      "exerciseId": "manual-hanging-leg-raise"
+    },
+    {
+      "alias": "hanging-leg-raise",
+      "exerciseId": "manual-hanging-leg-raise"
+    },
+    {
+      "alias": "russian twist",
+      "exerciseId": "wger-1193"
+    },
+    {
+      "alias": "russian twists",
+      "exerciseId": "wger-1193"
+    },
+    {
+      "alias": "russian-twist",
+      "exerciseId": "wger-1193"
+    },
+    {
+      "alias": "mountain climbers",
+      "exerciseId": "manual-mountain-climber"
+    },
+    {
+      "alias": "mountain climber",
+      "exerciseId": "manual-mountain-climber"
+    },
+    {
+      "alias": "mountain-climber",
+      "exerciseId": "manual-mountain-climber"
+    },
+    {
+      "alias": "burpees",
+      "exerciseId": "manual-burpee"
+    },
+    {
+      "alias": "burpee",
+      "exerciseId": "manual-burpee"
+    },
+    {
+      "alias": "jump rope",
+      "exerciseId": "manual-jump-rope"
+    },
+    {
+      "alias": "skipping rope",
+      "exerciseId": "manual-jump-rope"
+    },
+    {
+      "alias": "skipping",
+      "exerciseId": "manual-jump-rope"
+    },
+    {
+      "alias": "jump-rope",
+      "exerciseId": "manual-jump-rope"
     }
   ],
   "stats": {
-    "muscleCount": 25,
-    "exerciseCount": 832,
-    "activationCount": 1589,
-    "aliasCount": 138,
-    "overrideRowsApplied": 101
+    "muscleCount": 26,
+    "exerciseCount": 855,
+    "activationCount": 1731,
+    "aliasCount": 243,
+    "overrideRowsApplied": 252
   }
 }

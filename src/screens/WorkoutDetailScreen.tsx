@@ -31,6 +31,22 @@ export default function WorkoutDetailScreen({ route }: Props) {
       <Text style={styles.sessionMeta}>
         {new Date(detail.performedAt).toLocaleDateString()} · {detail.points} pts
       </Text>
+      <Text style={styles.sectionTitle}>Muscle load</Text>
+      {detail.muscleLoads.length === 0 ? (
+        <Text style={styles.empty}>No muscle load data for this workout.</Text>
+      ) : (
+        <View style={styles.loadCard}>
+          {detail.muscleLoads.map((load) => (
+            <View key={load.muscleId} style={styles.loadRow}>
+              <View style={styles.loadText}>
+                <Text style={styles.itemName}>{load.muscleName}</Text>
+                <Text style={styles.itemMeta}>{load.regionName ?? 'Other'}</Text>
+              </View>
+              <Text style={styles.loadPoints}>{Math.round(load.load)} load</Text>
+            </View>
+          ))}
+        </View>
+      )}
       <Text style={styles.sectionTitle}>Exercises</Text>
       {detail.items.map((item) => (
         <View key={item.id} style={styles.itemCard}>
@@ -67,6 +83,29 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '700',
     marginBottom: 10,
+  },
+  loadCard: {
+    backgroundColor: '#161b22',
+    borderRadius: 12,
+    marginBottom: 16,
+    padding: 16,
+  },
+  loadRow: {
+    alignItems: 'center',
+    borderBottomColor: '#30363d',
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 10,
+    paddingBottom: 10,
+  },
+  loadText: {
+    flex: 1,
+    paddingRight: 12,
+  },
+  loadPoints: {
+    color: '#58a6ff',
+    fontWeight: '700',
   },
   itemCard: {
     backgroundColor: '#161b22',

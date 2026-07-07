@@ -143,5 +143,216 @@
     "abs": 10,
     "obliques": 4,
     "hip_flexors": 3
+  },
+  "push-up": {
+    "pectorals": 10,
+    "triceps": 7,
+    "deltoids": 6,
+    "abs": 4,
+    "serratus": 4,
+    "glutes": 2
+  },
+  "dip": {
+    "triceps": 10,
+    "pectorals": 8,
+    "deltoids": 6,
+    "abs": 4,
+    "lats": 2
+  },
+  "chest-fly": {
+    "pectorals": 10,
+    "deltoids": 4,
+    "biceps": 2,
+    "abs": 2
+  },
+  "cable-crossover": {
+    "pectorals": 10,
+    "deltoids": 4,
+    "serratus": 4,
+    "abs": 3
+  },
+  "seated-row": {
+    "lats": 9,
+    "rhomboids": 8,
+    "traps": 6,
+    "biceps": 6,
+    "forearms": 4,
+    "erector_spinae": 3
+  },
+  "single-arm-dumbbell-row": {
+    "lats": 10,
+    "rhomboids": 7,
+    "traps": 6,
+    "biceps": 6,
+    "forearms": 5,
+    "abs": 4,
+    "erector_spinae": 3
+  },
+  "face-pull": {
+    "deltoids": 8,
+    "traps": 7,
+    "rhomboids": 7,
+    "forearms": 3,
+    "abs": 2
+  },
+  "rear-delt-fly": {
+    "deltoids": 10,
+    "rhomboids": 6,
+    "traps": 5,
+    "forearms": 2
+  },
+  "shrug": {
+    "traps": 10,
+    "forearms": 5,
+    "deltoids": 3,
+    "erector_spinae": 3
+  },
+  "upright-row": {
+    "deltoids": 9,
+    "traps": 8,
+    "biceps": 4,
+    "forearms": 4,
+    "abs": 2
+  },
+  "dumbbell-shoulder-press": {
+    "deltoids": 10,
+    "triceps": 7,
+    "traps": 5,
+    "abs": 4,
+    "glutes": 2
+  },
+  "arnold-press": {
+    "deltoids": 10,
+    "triceps": 6,
+    "traps": 4,
+    "abs": 4,
+    "biceps": 2
+  },
+  "front-raise": {
+    "deltoids": 10,
+    "pectorals": 3,
+    "traps": 3,
+    "abs": 3,
+    "forearms": 2
+  },
+  "preacher-curl": {
+    "biceps": 10,
+    "brachialis": 7,
+    "forearms": 4,
+    "deltoids": 2
+  },
+  "concentration-curl": {
+    "biceps": 10,
+    "brachialis": 6,
+    "forearms": 4
+  },
+  "cable-curl": {
+    "biceps": 10,
+    "brachialis": 7,
+    "forearms": 5,
+    "deltoids": 2
+  },
+  "overhead-triceps-extension": {
+    "triceps": 10,
+    "deltoids": 4,
+    "forearms": 4,
+    "abs": 3
+  },
+  "close-grip-bench-press": {
+    "triceps": 10,
+    "pectorals": 7,
+    "deltoids": 6,
+    "abs": 3,
+    "lats": 2
+  },
+  "leg-extension": {
+    "quads": 10,
+    "hip_flexors": 3
+  },
+  "walking-lunge": {
+    "quads": 9,
+    "glutes": 8,
+    "hamstrings": 6,
+    "calves": 4,
+    "abs": 4,
+    "adductors": 3
+  },
+  "bulgarian-split-squat": {
+    "quads": 10,
+    "glutes": 9,
+    "hamstrings": 5,
+    "adductors": 5,
+    "calves": 3,
+    "abs": 4
+  },
+  "hip-thrust": {
+    "glutes": 10,
+    "hamstrings": 6,
+    "quads": 3,
+    "abs": 4,
+    "erector_spinae": 2
+  },
+  "glute-bridge": {
+    "glutes": 10,
+    "hamstrings": 5,
+    "abs": 4,
+    "erector_spinae": 2
+  },
+  "sumo-deadlift": {
+    "glutes": 10,
+    "hamstrings": 8,
+    "quads": 7,
+    "adductors": 7,
+    "erector_spinae": 7,
+    "traps": 5,
+    "forearms": 5,
+    "abs": 4
+  },
+  "goblet-squat": {
+    "quads": 10,
+    "glutes": 8,
+    "hamstrings": 5,
+    "abs": 6,
+    "forearms": 3,
+    "deltoids": 2
+  },
+  "hanging-leg-raise": {
+    "abs": 10,
+    "hip_flexors": 8,
+    "obliques": 5,
+    "forearms": 4,
+    "lats": 3
+  },
+  "russian-twist": {
+    "obliques": 10,
+    "abs": 7,
+    "hip_flexors": 3,
+    "deltoids": 2
+  },
+  "mountain-climber": {
+    "abs": 8,
+    "hip_flexors": 7,
+    "deltoids": 5,
+    "quads": 4,
+    "pectorals": 3,
+    "triceps": 3
+  },
+  "burpee": {
+    "quads": 8,
+    "glutes": 7,
+    "pectorals": 6,
+    "triceps": 5,
+    "deltoids": 5,
+    "abs": 5,
+    "calves": 4,
+    "hamstrings": 4
+  },
+  "jump-rope": {
+    "calves": 10,
+    "quads": 4,
+    "hamstrings": 3,
+    "deltoids": 3,
+    "forearms": 3,
+    "abs": 3
   }
 }

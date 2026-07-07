@@ -173,5 +173,12 @@
     "parentRegionId": "legs",
     "mapSlot": null,
     "wgerId": null
+  },
+  {
+    "id": "adductors",
+    "name": "Adductors",
+    "parentRegionId": "legs",
+    "mapSlot": null,
+    "wgerId": null
   }
 ]
