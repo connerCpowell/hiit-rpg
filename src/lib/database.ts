@@ -46,17 +46,7 @@ interface ExerciseSnapshot {
 }
 
 async function ensureRuntimeSchema(db: SQLite.SQLiteDatabase): Promise<void> {
-  await db.execAsync(`
-    CREATE TABLE IF NOT EXISTS workout_session_muscle_loads (
-      session_id TEXT NOT NULL REFERENCES workout_sessions(id) ON DELETE CASCADE,
-      muscle_id TEXT NOT NULL REFERENCES muscle_groups(id),
-      load REAL NOT NULL DEFAULT 0,
-      PRIMARY KEY (session_id, muscle_id)
-    );
-
-    CREATE INDEX IF NOT EXISTS idx_workout_muscle_loads_muscle
-      ON workout_session_muscle_loads(muscle_id);
-  `);
+  await db.execAsync(SCHEMA_SQL);
 }
 
 async function ensureDatabaseCopied(): Promise<void> {

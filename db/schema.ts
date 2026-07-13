@@ -63,6 +63,33 @@ CREATE TABLE IF NOT EXISTS workout_session_muscle_loads (
   PRIMARY KEY (session_id, muscle_id)
 );
 
+CREATE TABLE IF NOT EXISTS player_progress (
+  user_id TEXT PRIMARY KEY NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  total_xp INTEGER NOT NULL DEFAULT 0,
+  level INTEGER NOT NULL DEFAULT 1,
+  workout_count INTEGER NOT NULL DEFAULT 0,
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+CREATE TABLE IF NOT EXISTS player_attributes (
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  attribute_id TEXT NOT NULL CHECK (attribute_id IN ('strength', 'cardio', 'flexibility', 'endurance', 'consistency')),
+  xp INTEGER NOT NULL DEFAULT 0,
+  level INTEGER NOT NULL DEFAULT 1,
+  updated_at TEXT NOT NULL DEFAULT (datetime('now')),
+  PRIMARY KEY (user_id, attribute_id)
+);
+
+CREATE TABLE IF NOT EXISTS player_muscle_progress (
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  muscle_id TEXT NOT NULL REFERENCES muscle_groups(id),
+  xp INTEGER NOT NULL DEFAULT 0,
+  level INTEGER NOT NULL DEFAULT 1,
+  updated_at TEXT NOT NULL DEFAULT (datetime('now')),
+  PRIMARY KEY (user_id, muscle_id)
+);
+
 CREATE INDEX IF NOT EXISTS idx_exercises_slug ON exercises(slug);
 CREATE INDEX IF NOT EXISTS idx_exercises_name ON exercises(name);
 CREATE INDEX IF NOT EXISTS idx_activation_muscle ON exercise_muscle_activation(muscle_id);
@@ -70,4 +97,6 @@ CREATE INDEX IF NOT EXISTS idx_aliases_exercise ON exercise_aliases(exercise_id)
 CREATE INDEX IF NOT EXISTS idx_workout_sessions_user ON workout_sessions(user_id);
 CREATE INDEX IF NOT EXISTS idx_workout_session_items_session ON workout_session_items(session_id);
 CREATE INDEX IF NOT EXISTS idx_workout_muscle_loads_muscle ON workout_session_muscle_loads(muscle_id);
+CREATE INDEX IF NOT EXISTS idx_player_attributes_user ON player_attributes(user_id);
+CREATE INDEX IF NOT EXISTS idx_player_muscle_progress_user ON player_muscle_progress(user_id);
 `;

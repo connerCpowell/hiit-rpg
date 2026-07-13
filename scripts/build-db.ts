@@ -75,7 +75,11 @@ function main(): void {
   db.exec('BEGIN');
   try {
     for (const muscle of muscles) {
-      insertMuscle.run(muscle.id, muscle.name, muscle.parentRegionId, muscle.mapSlot);
+      insertMuscle.run(
+        muscle.id, 
+        muscle.name, 
+        muscle.parentRegionId, 
+        muscle.mapSlot);
     }
 
     for (const exercise of exerciseData.exercises) {
@@ -91,11 +95,18 @@ function main(): void {
     }
 
     for (const row of exerciseData.activations) {
-      insertActivation.run(row.exerciseId, row.muscleId, row.activation, row.role);
+      insertActivation.run(
+        row.exerciseId, 
+        row.muscleId, 
+        row.activation, 
+        row.role
+      );
     }
 
     for (const row of exerciseData.aliases) {
-      insertAlias.run(row.alias, row.exerciseId);
+      insertAlias.run(
+        row.alias, 
+        row.exerciseId);
     }
 
     insertUser.run('local-user', 'Player One', new Date().toISOString());

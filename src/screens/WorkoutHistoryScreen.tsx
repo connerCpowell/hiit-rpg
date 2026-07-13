@@ -22,11 +22,18 @@ export default function WorkoutHistoryScreen({ navigation }: Props) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Workout History</Text>
+      <View style={styles.header}>
+        <Text style={styles.kicker}>Past workouts</Text>
+        <Text style={styles.title}>Session history</Text>
+        <Text style={styles.subtitle}>Tap a workout to inspect exercises and muscle load.</Text>
+      </View>
       {loading ? (
         <Text style={styles.empty}>Loading…</Text>
       ) : workouts.length === 0 ? (
-        <Text style={styles.empty}>No workouts logged yet.</Text>
+        <View style={styles.emptyCard}>
+          <Text style={styles.emptyTitle}>No workouts yet</Text>
+          <Text style={styles.empty}>Saved sessions will show up here.</Text>
+        </View>
       ) : (
         <FlatList
           data={workouts}
@@ -51,33 +58,61 @@ export default function WorkoutHistoryScreen({ navigation }: Props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0d1117',
+    backgroundColor: '#020817',
     paddingHorizontal: 16,
-    paddingTop: 8,
+    paddingTop: 16,
   },
-  title: {
-    color: '#f0f6fc',
-    fontSize: 28,
-    fontWeight: '700',
+  header: {
     marginBottom: 16,
   },
+  kicker: {
+    color: '#38bdf8',
+    fontSize: 12,
+    fontWeight: '700',
+    letterSpacing: 1,
+    marginBottom: 8,
+    textTransform: 'uppercase',
+  },
+  title: {
+    color: '#f8fafc',
+    fontSize: 30,
+    fontWeight: '700',
+  },
+  subtitle: {
+    color: '#94a3b8',
+    marginTop: 8,
+  },
   sessionCard: {
-    backgroundColor: '#161b22',
-    borderRadius: 12,
+    backgroundColor: '#0f172a',
+    borderColor: '#1e293b',
+    borderRadius: 16,
+    borderWidth: 1,
     padding: 16,
     marginBottom: 12,
   },
   sessionTitle: {
-    color: '#f0f6fc',
+    color: '#f8fafc',
     fontSize: 16,
     fontWeight: '700',
   },
   sessionMeta: {
-    color: '#8b949e',
+    color: '#94a3b8',
     marginTop: 6,
   },
+  emptyCard: {
+    backgroundColor: '#0f172a',
+    borderColor: '#1e293b',
+    borderRadius: 16,
+    borderWidth: 1,
+    padding: 16,
+  },
+  emptyTitle: {
+    color: '#f8fafc',
+    fontWeight: '700',
+    marginBottom: 4,
+  },
   empty: {
-    color: '#8b949e',
+    color: '#64748b',
     paddingVertical: 8,
   },
 });
