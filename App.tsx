@@ -7,6 +7,7 @@ import UserScreen from './src/screens/UserScreen';
 import WorkoutsScreen from './src/screens/WorkoutsScreen';
 import WorkoutHistoryScreen from './src/screens/WorkoutHistoryScreen';
 import WorkoutDetailScreen from './src/screens/WorkoutDetailScreen';
+import WorkoutRewardScreen from './src/screens/WorkoutRewardScreen';
 import type { RootStackParamList } from './src/types/navigation';
 
 enableScreens();
@@ -30,6 +31,11 @@ export default function App() {
         <Stack.Screen name="Workouts" component={WorkoutsScreen} options={{ title: 'Workouts' }} />
         <Stack.Screen name="WorkoutHistory" component={WorkoutHistoryScreen} options={{ title: 'Past Workouts' }} />
         <Stack.Screen name="WorkoutDetail" component={WorkoutDetailScreen} options={{ title: 'Workout Detail' }} />
+        <Stack.Screen
+          name="WorkoutReward"
+          component={WorkoutRewardScreen}
+          options={{ title: 'Rewards', headerBackVisible: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

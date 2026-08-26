@@ -1,4 +1,5 @@
 import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import TopNav from '../components/TopNav';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../types/navigation';
 
@@ -8,6 +9,7 @@ export default function HomeScreen({ navigation }: Props) {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.content}>
+        <TopNav navigation={navigation} current="Home" />
         <View style={styles.hero}>
           <Text style={styles.kicker}>Workout RPG</Text>
           <Text style={styles.title}>Train your character.</Text>

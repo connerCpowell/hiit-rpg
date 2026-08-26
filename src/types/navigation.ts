@@ -1,3 +1,5 @@
+import type { WorkoutRewardSummary } from './player';
+
 export type RootStackParamList = {
   Home: undefined;
   User: undefined;
@@ -5,4 +7,5 @@ export type RootStackParamList = {
   Workouts: undefined;
   WorkoutHistory: undefined;
   WorkoutDetail: { sessionId: string };
+  WorkoutReward: { reward: WorkoutRewardSummary };
 };

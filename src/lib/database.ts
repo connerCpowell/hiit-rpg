@@ -45,8 +45,21 @@ interface ExerciseSnapshot {
   aliases: SnapshotAlias[];
 }
 
+async function ensureColumn(
+  db: SQLite.SQLiteDatabase,
+  table: string,
+  column: string,
+  definition: string
+): Promise<void> {
+  const columns = await db.getAllAsync<{ name: string }>(`PRAGMA table_info(${table})`);
+  if (columns.some((row) => row.name === column)) return;
+  await db.execAsync(`ALTER TABLE ${table} ADD COLUMN ${column} ${definition}`);
+}
+
 async function ensureRuntimeSchema(db: SQLite.SQLiteDatabase): Promise<void> {
   await db.execAsync(SCHEMA_SQL);
+  await ensureColumn(db, 'workout_session_items', 'duration_minutes', 'REAL NOT NULL DEFAULT 0');
+  await ensureColumn(db, 'workout_session_items', 'distance_km', 'REAL NOT NULL DEFAULT 0');
 }
 
 async function ensureDatabaseCopied(): Promise<void> {

@@ -21,6 +21,8 @@ export interface WorkoutSessionItem {
   sets: number;
   reps: number;
   weight: number;
+  durationMinutes: number;
+  distanceKm: number;
   volume: number;
   notes: string | null;
 }
@@ -48,6 +50,8 @@ export interface WorkoutSessionSubmissionItem {
   sets: number;
   reps: number;
   weight: number;
+  durationMinutes?: number;
+  distanceKm?: number;
   notes?: string;
 }
 

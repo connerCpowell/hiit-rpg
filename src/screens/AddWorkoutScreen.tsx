@@ -9,9 +9,10 @@ import {
   TextInput,
   View,
 } from 'react-native';
+import TopNav from '../components/TopNav';
 import { getExerciseActivations, searchExercises, type ExerciseSearchResult } from '../lib/database';
 import { createWorkoutSession, getOrCreateLocalUser } from '../lib/workouts';
-import type { ExerciseWithActivations } from '../types/exercise';
+import type { ExerciseCategory, ExerciseWithActivations } from '../types/exercise';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../types/navigation';
 
@@ -21,9 +22,12 @@ interface PendingWorkoutItem {
   localId: string;
   exerciseId: string;
   exerciseName: string;
+  category: ExerciseCategory;
   sets: number;
   reps: number;
   weight: number;
+  durationMinutes: number;
+  distanceKm: number;
 }
 
 function parseWorkoutNumber(value: string): number {
@@ -43,7 +47,11 @@ export default function AddWorkoutScreen({ navigation }: Props) {
   const [setsInput, setSetsInput] = useState('3');
   const [repsInput, setRepsInput] = useState('10');
   const [weightInput, setWeightInput] = useState('0');
+  const [durationInput, setDurationInput] = useState('30');
+  const [distanceInput, setDistanceInput] = useState('0');
   const [workoutItems, setWorkoutItems] = useState<PendingWorkoutItem[]>([]);
+
+  const isCardio = selected?.category === 'cardio';
 
   const loadResults = useCallback(async (searchQuery: string) => {
     const trimmed = searchQuery.trim();
@@ -89,26 +97,54 @@ export default function AddWorkoutScreen({ navigation }: Props) {
       return;
     }
 
-    const sets = Math.round(parseWorkoutNumber(setsInput));
-    const reps = Math.round(parseWorkoutNumber(repsInput));
-    const weight = parseWorkoutNumber(weightInput);
+    if (selected.category === 'cardio') {
+      const durationMinutes = parseWorkoutNumber(durationInput);
+      const distanceKm = parseWorkoutNumber(distanceInput);
+      if (durationMinutes <= 0 && distanceKm <= 0) {
+        setError('Enter duration (minutes) and/or distance (km) for cardio.');
+        return;
+      }
 
-    if (sets <= 0 || reps <= 0 || weight < 0) {
-      setError('Use positive sets/reps and a weight of 0 or more.');
-      return;
+      setWorkoutItems((current) => [
+        ...current,
+        {
+          localId: `${selected.id}-${Date.now()}-${current.length}`,
+          exerciseId: selected.id,
+          exerciseName: selected.name,
+          category: selected.category,
+          sets: 0,
+          reps: 0,
+          weight: 0,
+          durationMinutes,
+          distanceKm,
+        },
+      ]);
+    } else {
+      const sets = Math.round(parseWorkoutNumber(setsInput));
+      const reps = Math.round(parseWorkoutNumber(repsInput));
+      const weight = parseWorkoutNumber(weightInput);
+
+      if (sets <= 0 || reps <= 0 || weight < 0) {
+        setError('Use positive sets/reps and a weight of 0 or more.');
+        return;
+      }
+
+      setWorkoutItems((current) => [
+        ...current,
+        {
+          localId: `${selected.id}-${Date.now()}-${current.length}`,
+          exerciseId: selected.id,
+          exerciseName: selected.name,
+          category: selected.category,
+          sets,
+          reps,
+          weight,
+          durationMinutes: 0,
+          distanceKm: 0,
+        },
+      ]);
     }
 
-    setWorkoutItems((current) => [
-      ...current,
-      {
-        localId: `${selected.id}-${Date.now()}-${current.length}`,
-        exerciseId: selected.id,
-        exerciseName: selected.name,
-        sets,
-        reps,
-        weight,
-      },
-    ]);
     setQuery('');
     setResults([]);
     setSelected(null);
@@ -124,7 +160,7 @@ export default function AddWorkoutScreen({ navigation }: Props) {
     setSaving(true);
     try {
       const user = await getOrCreateLocalUser();
-      await createWorkoutSession({
+      const { reward } = await createWorkoutSession({
         userId: user.id,
         performedAt: new Date().toISOString(),
         title: sessionTitle.trim() || 'Workout',
@@ -134,12 +170,14 @@ export default function AddWorkoutScreen({ navigation }: Props) {
           sets: item.sets,
           reps: item.reps,
           weight: item.weight,
+          durationMinutes: item.durationMinutes,
+          distanceKm: item.distanceKm,
         })),
       });
       setWorkoutItems([]);
       setSessionTitle('My workout');
       setSessionNote('');
-      navigation.navigate('WorkoutHistory');
+      navigation.replace('WorkoutReward', { reward });
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to save workout.');
     } finally {
@@ -150,10 +188,13 @@ export default function AddWorkoutScreen({ navigation }: Props) {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
+        <TopNav navigation={navigation} current="AddWorkout" />
         <View style={styles.header}>
           <Text style={styles.kicker}>Add workout</Text>
           <Text style={styles.title}>Build one session.</Text>
-          <Text style={styles.subtitle}>Search, configure, add. The catalog stays out of the way.</Text>
+          <Text style={styles.subtitle}>
+            Strength uses sets/reps/weight. Cardio uses duration and distance.
+          </Text>
         </View>
 
         {error ? <Text style={styles.error}>{error}</Text> : null}
@@ -192,11 +233,18 @@ export default function AddWorkoutScreen({ navigation }: Props) {
               {selected.activations.length} muscles
             </Text>
 
-            <View style={styles.fieldRow}>
-              <Field label="Sets" value={setsInput} onChangeText={setSetsInput} />
-              <Field label="Reps" value={repsInput} onChangeText={setRepsInput} />
-              <Field label="Weight" value={weightInput} onChangeText={setWeightInput} />
-            </View>
+            {isCardio ? (
+              <View style={styles.fieldRow}>
+                <Field label="Minutes" value={durationInput} onChangeText={setDurationInput} />
+                <Field label="Distance km" value={distanceInput} onChangeText={setDistanceInput} />
+              </View>
+            ) : (
+              <View style={styles.fieldRow}>
+                <Field label="Sets" value={setsInput} onChangeText={setSetsInput} />
+                <Field label="Reps" value={repsInput} onChangeText={setRepsInput} />
+                <Field label="Weight" value={weightInput} onChangeText={setWeightInput} />
+              </View>
+            )}
 
             <Pressable style={styles.primaryButton} onPress={handleAddExercise}>
               <Text style={styles.primaryButtonText}>Add exercise</Text>
@@ -214,7 +262,9 @@ export default function AddWorkoutScreen({ navigation }: Props) {
                 <View>
                   <Text style={styles.resultName}>{item.exerciseName}</Text>
                   <Text style={styles.muted}>
-                    {item.sets}x{item.reps} · {item.weight === 0 ? 'bodyweight' : `${item.weight} kg`}
+                    {item.category === 'cardio'
+                      ? `${item.durationMinutes} min · ${item.distanceKm} km`
+                      : `${item.sets}x${item.reps} · ${item.weight === 0 ? 'bodyweight' : `${item.weight} kg`}`}
                   </Text>
                 </View>
                 <Pressable

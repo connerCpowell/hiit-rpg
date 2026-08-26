@@ -1,37 +1,65 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { ActivityIndicator, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
+import BodyMap, { type BodyRegionId, type RegionXpMap } from '../components/BodyMap';
+import CharacterPortrait from '../components/CharacterPortrait';
+import TopNav from '../components/TopNav';
 import { xpForLevel } from '../lib/scoring';
 import { getOrCreateLocalUser, getPlayerSummary } from '../lib/workouts';
 import type { PlayerSummary } from '../types/player';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import type { RootStackParamList } from '../types/navigation';
 
-const BODY_REGIONS = ['Chest', 'Back', 'Shoulders', 'Arms', 'Core', 'Legs'];
+const BODY_REGIONS: BodyRegionId[] = ['Chest', 'Back', 'Shoulders', 'Arms', 'Core', 'Legs'];
 
-export default function UserScreen() {
+type Props = NativeStackScreenProps<RootStackParamList, 'User'>;
+
+export default function UserScreen({ navigation }: Props) {
   const [summary, setSummary] = useState<PlayerSummary | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    void (async () => {
-      try {
-        const user = await getOrCreateLocalUser();
-        setSummary(await getPlayerSummary(user.id));
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to load player.');
-      } finally {
-        setLoading(false);
-      }
-    })();
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      let active = true;
+      void (async () => {
+        try {
+          const user = await getOrCreateLocalUser();
+          const next = await getPlayerSummary(user.id);
+          if (active) {
+            setSummary(next);
+            setError(null);
+          }
+        } catch (err) {
+          if (active) {
+            setError(err instanceof Error ? err.message : 'Failed to load player.');
+          }
+        } finally {
+          if (active) setLoading(false);
+        }
+      })();
+      return () => {
+        active = false;
+      };
+    }, [])
+  );
 
   const regionXp = useMemo(() => {
-    const totals = new Map<string, number>();
-    for (const region of BODY_REGIONS) {
-      totals.set(region, 0);
-    }
+    const totals: RegionXpMap = {
+      Chest: 0,
+      Back: 0,
+      Shoulders: 0,
+      Arms: 0,
+      Core: 0,
+      Legs: 0,
+    };
     for (const muscle of summary?.muscles ?? []) {
-      const region = muscle.regionName ?? 'Core';
-      totals.set(region, (totals.get(region) ?? 0) + muscle.xp);
+      const region = (muscle.regionName ?? 'Core') as BodyRegionId;
+      if (region in totals) {
+        totals[region] += muscle.xp;
+      } else {
+        totals.Core += muscle.xp;
+      }
     }
     return totals;
   }, [summary]);
@@ -62,6 +90,7 @@ export default function UserScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.content}>
+        <TopNav navigation={navigation} current="User" />
         <View style={styles.heroCard}>
           <Text style={styles.kicker}>Player</Text>
           <Text style={styles.title}>Level {summary.progress.level}</Text>
@@ -72,6 +101,70 @@ export default function UserScreen() {
           <Text style={styles.muted}>
             {Math.max(0, nextLevelXp - summary.progress.totalXp)} XP to level {summary.progress.level + 1}
           </Text>
+          <View style={styles.streakRow}>
+            <Text style={styles.streakValue}>{summary.streak.currentStreak} day streak</Text>
+            <Text style={styles.muted}>Best {summary.streak.bestStreak}</Text>
+          </View>
+        </View>
+
+        <View style={styles.card}>
+          <Text style={styles.sectionTitle}>Character</Text>
+          <CharacterPortrait
+            level={summary.progress.level}
+            attributes={summary.attributes}
+            achievements={summary.achievements}
+          />
+        </View>
+
+        <View style={styles.card}>
+          <Text style={styles.sectionTitle}>Daily quests</Text>
+          {summary.dailyQuests.length === 0 ? (
+            <Text style={styles.empty}>Quests appear once you open this screen.</Text>
+          ) : (
+            summary.dailyQuests.map((quest) => (
+              <View key={quest.id} style={styles.rowBlock}>
+                <View style={styles.rowHeader}>
+                  <Text style={[styles.rowTitle, quest.completed && styles.questDone]}>
+                    {quest.completed ? '✓ ' : ''}
+                    {quest.title}
+                  </Text>
+                  <Text style={styles.badge}>+{quest.xpReward} XP</Text>
+                </View>
+                <Text style={styles.muted}>{quest.description}</Text>
+                <ProgressBar
+                  progress={quest.targetValue === 0 ? 0 : quest.progressValue / quest.targetValue}
+                />
+              </View>
+            ))
+          )}
+        </View>
+
+        <View style={styles.card}>
+          <Text style={styles.sectionTitle}>Achievements</Text>
+          {summary.achievements.length === 0 ? (
+            <Text style={styles.empty}>No achievements defined.</Text>
+          ) : (
+            summary.achievements.map((achievement) => (
+              <View key={achievement.id} style={styles.rowBlock}>
+                <View style={styles.rowHeader}>
+                  <Text style={[styles.rowTitle, !achievement.unlocked && styles.lockedTitle]}>
+                    {achievement.unlocked ? '★ ' : '○ '}
+                    {achievement.title}
+                  </Text>
+                  <Text style={styles.badge}>{labelize(achievement.focus)}</Text>
+                </View>
+                <Text style={styles.muted}>{achievement.description}</Text>
+              </View>
+            ))
+          )}
+        </View>
+
+        <View style={styles.card}>
+          <Text style={styles.sectionTitle}>Avatar body map</Text>
+          <Text style={styles.muted}>Regions heat up as you train them.</Text>
+          <View style={styles.bodyMapWrap}>
+            <BodyMap regionXp={regionXp} />
+          </View>
         </View>
 
         <View style={styles.card}>
@@ -89,18 +182,15 @@ export default function UserScreen() {
         </View>
 
         <View style={styles.card}>
-          <Text style={styles.sectionTitle}>Body map</Text>
-          <View style={styles.bodyGrid}>
-            {BODY_REGIONS.map((region) => {
-              const xp = regionXp.get(region) ?? 0;
-              return (
-                <View key={region} style={[styles.bodyCell, xp > 0 && styles.bodyCellActive]}>
-                  <Text style={styles.bodyRegion}>{region}</Text>
-                  <Text style={styles.bodyXp}>{xp} XP</Text>
-                </View>
-              );
-            })}
-          </View>
+          <Text style={styles.sectionTitle}>Region XP</Text>
+          {BODY_REGIONS.map((region) => (
+            <View key={region} style={styles.rowBlock}>
+              <View style={styles.rowHeader}>
+                <Text style={styles.rowTitle}>{region}</Text>
+                <Text style={styles.badge}>{regionXp[region]} XP</Text>
+              </View>
+            </View>
+          ))}
         </View>
 
         <View style={styles.card}>
@@ -162,6 +252,9 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     padding: 16,
   },
+  bodyMapWrap: {
+    marginTop: 14,
+  },
   kicker: {
     color: '#38bdf8',
     fontSize: 12,
@@ -215,6 +308,26 @@ const styles = StyleSheet.create({
     fontSize: 12,
     marginTop: 6,
   },
+  streakRow: {
+    alignItems: 'center',
+    borderTopColor: '#1e293b',
+    borderTopWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 14,
+    paddingTop: 12,
+  },
+  streakValue: {
+    color: '#f8fafc',
+    fontSize: 14,
+    fontWeight: '700',
+  },
+  questDone: {
+    color: '#86efac',
+  },
+  lockedTitle: {
+    color: '#64748b',
+  },
   progressTrack: {
     backgroundColor: '#1e293b',
     borderRadius: 999,
@@ -225,31 +338,6 @@ const styles = StyleSheet.create({
   progressFill: {
     backgroundColor: '#38bdf8',
     height: '100%',
-  },
-  bodyGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 10,
-  },
-  bodyCell: {
-    backgroundColor: '#020817',
-    borderColor: '#1e293b',
-    borderRadius: 14,
-    borderWidth: 1,
-    padding: 12,
-    width: '48%',
-  },
-  bodyCellActive: {
-    borderColor: '#38bdf8',
-  },
-  bodyRegion: {
-    color: '#f8fafc',
-    fontWeight: '700',
-  },
-  bodyXp: {
-    color: '#94a3b8',
-    fontSize: 12,
-    marginTop: 6,
   },
   empty: {
     color: '#64748b',

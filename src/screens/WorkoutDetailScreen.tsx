@@ -57,7 +57,9 @@ export default function WorkoutDetailScreen({ route }: Props) {
           <View key={item.id} style={styles.itemCard}>
             <Text style={styles.itemName}>{item.exerciseName}</Text>
             <Text style={styles.itemMeta}>
-              {item.sets}x{item.reps} · {item.weight} kg · {Math.round(item.volume)} volume
+              {item.category === 'cardio'
+                ? `${item.durationMinutes} min · ${item.distanceKm} km · ${Math.round(item.volume)} volume`
+                : `${item.sets}x${item.reps} · ${item.weight} kg · ${Math.round(item.volume)} volume`}
             </Text>
             {item.notes ? <Text style={styles.itemNotes}>{item.notes}</Text> : null}
           </View>

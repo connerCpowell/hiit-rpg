@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { FlatList, Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import TopNav from '../components/TopNav';
 import { getOrCreateLocalUser, getWorkoutSessions } from '../lib/workouts';
 import type { WorkoutSession } from '../types/workout';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -22,35 +23,39 @@ export default function WorkoutHistoryScreen({ navigation }: Props) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.kicker}>Past workouts</Text>
-        <Text style={styles.title}>Session history</Text>
-        <Text style={styles.subtitle}>Tap a workout to inspect exercises and muscle load.</Text>
-      </View>
-      {loading ? (
-        <Text style={styles.empty}>Loading…</Text>
-      ) : workouts.length === 0 ? (
-        <View style={styles.emptyCard}>
-          <Text style={styles.emptyTitle}>No workouts yet</Text>
-          <Text style={styles.empty}>Saved sessions will show up here.</Text>
-        </View>
-      ) : (
-        <FlatList
-          data={workouts}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <Pressable
-              style={styles.sessionCard}
-              onPress={() => navigation.navigate('WorkoutDetail', { sessionId: item.id })}
-            >
-              <Text style={styles.sessionTitle}>{item.title}</Text>
-              <Text style={styles.sessionMeta}>
-                {new Date(item.performedAt).toLocaleDateString()} · {item.points} pts
-              </Text>
-            </Pressable>
-          )}
-        />
-      )}
+      <FlatList
+        data={loading ? [] : workouts}
+        keyExtractor={(item) => item.id}
+        contentContainerStyle={styles.content}
+        ListHeaderComponent={
+          <View>
+            <TopNav navigation={navigation} current="WorkoutHistory" />
+            <View style={styles.header}>
+              <Text style={styles.kicker}>Past workouts</Text>
+              <Text style={styles.title}>Session history</Text>
+              <Text style={styles.subtitle}>Tap a workout to inspect exercises and muscle load.</Text>
+            </View>
+            {loading ? <Text style={styles.empty}>Loading…</Text> : null}
+            {!loading && workouts.length === 0 ? (
+              <View style={styles.emptyCard}>
+                <Text style={styles.emptyTitle}>No workouts yet</Text>
+                <Text style={styles.empty}>Saved sessions will show up here.</Text>
+              </View>
+            ) : null}
+          </View>
+        }
+        renderItem={({ item }) => (
+          <Pressable
+            style={styles.sessionCard}
+            onPress={() => navigation.navigate('WorkoutDetail', { sessionId: item.id })}
+          >
+            <Text style={styles.sessionTitle}>{item.title}</Text>
+            <Text style={styles.sessionMeta}>
+              {new Date(item.performedAt).toLocaleDateString()} · {item.points} pts
+            </Text>
+          </Pressable>
+        )}
+      />
     </SafeAreaView>
   );
 }
@@ -59,8 +64,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#020817',
+  },
+  content: {
     paddingHorizontal: 16,
     paddingTop: 16,
+    paddingBottom: 32,
   },
   header: {
     marginBottom: 16,

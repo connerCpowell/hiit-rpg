@@ -52,6 +52,8 @@ CREATE TABLE IF NOT EXISTS workout_session_items (
   sets INTEGER NOT NULL DEFAULT 0,
   reps INTEGER NOT NULL DEFAULT 0,
   weight REAL NOT NULL DEFAULT 0,
+  duration_minutes REAL NOT NULL DEFAULT 0,
+  distance_km REAL NOT NULL DEFAULT 0,
   volume REAL NOT NULL DEFAULT 0,
   notes TEXT
 );
@@ -90,6 +92,36 @@ CREATE TABLE IF NOT EXISTS player_muscle_progress (
   PRIMARY KEY (user_id, muscle_id)
 );
 
+CREATE TABLE IF NOT EXISTS player_streaks (
+  user_id TEXT PRIMARY KEY NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  current_streak INTEGER NOT NULL DEFAULT 0,
+  best_streak INTEGER NOT NULL DEFAULT 0,
+  last_workout_date TEXT,
+  updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+CREATE TABLE IF NOT EXISTS daily_quests (
+  id TEXT PRIMARY KEY NOT NULL,
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  quest_date TEXT NOT NULL,
+  quest_key TEXT NOT NULL,
+  title TEXT NOT NULL,
+  description TEXT NOT NULL,
+  target_value REAL NOT NULL DEFAULT 1,
+  progress_value REAL NOT NULL DEFAULT 0,
+  xp_reward INTEGER NOT NULL DEFAULT 15,
+  completed INTEGER NOT NULL DEFAULT 0,
+  completed_at TEXT,
+  UNIQUE (user_id, quest_date, quest_key)
+);
+
+CREATE TABLE IF NOT EXISTS player_achievements (
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  achievement_id TEXT NOT NULL,
+  unlocked_at TEXT NOT NULL DEFAULT (datetime('now')),
+  PRIMARY KEY (user_id, achievement_id)
+);
+
 CREATE INDEX IF NOT EXISTS idx_exercises_slug ON exercises(slug);
 CREATE INDEX IF NOT EXISTS idx_exercises_name ON exercises(name);
 CREATE INDEX IF NOT EXISTS idx_activation_muscle ON exercise_muscle_activation(muscle_id);
@@ -99,4 +131,6 @@ CREATE INDEX IF NOT EXISTS idx_workout_session_items_session ON workout_session_
 CREATE INDEX IF NOT EXISTS idx_workout_muscle_loads_muscle ON workout_session_muscle_loads(muscle_id);
 CREATE INDEX IF NOT EXISTS idx_player_attributes_user ON player_attributes(user_id);
 CREATE INDEX IF NOT EXISTS idx_player_muscle_progress_user ON player_muscle_progress(user_id);
+CREATE INDEX IF NOT EXISTS idx_daily_quests_user_date ON daily_quests(user_id, quest_date);
+CREATE INDEX IF NOT EXISTS idx_player_achievements_user ON player_achievements(user_id);
 `;
